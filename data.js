@@ -115,6 +115,12 @@ const animalsAll = [
 
 // Seleziono il mio container da HTML
 const containerHTML = document.querySelector(".container");
+const selectValue = document.querySelector("#icon-select");
+
+const animalArray = [];
+const vegetableArray = [];
+const userArray = [];
+
 
 animalsAll.forEach((elm) => {
 	const element = document.createElement("div");
@@ -122,4 +128,40 @@ animalsAll.forEach((elm) => {
 	containerHTML.appendChild(element);
 	element.innerHTML += `<i class="fa-solid fa-${elm.name}"></i>`
 	element.style.color = `${elm.color}`;
+	
+	
+	if(elm.type == 'animal'){
+		element.classList.add("type-animal");
+	}
+	else if(elm.type == 'vegetable'){
+		element.classList.add("type-vegetable");
+	}
+	else{
+		element.classList.add("type-users");
+	}
+
+
+	const typeAnimal = document.querySelector('.type-animal')
+
+	selectValue.addEventListener('change', ()=> {
+		animalsAll.forEach(() => {
+			if(selectValue.value == 'animal'){
+				typeAnimal.style.display = 'none';
+			}
+		})
+	});
+
+
+
 });
+
+// const typeAnimal = document.querySelectorAll('.type-animal')
+
+// selectValue.addEventListener('change', ()=> {
+// 	if(selectValue.value == 'animal'){
+// 		typeAnimal.style.display = 'none';
+// 	}
+// });
+
+
+
