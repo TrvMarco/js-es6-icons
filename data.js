@@ -121,47 +121,39 @@ const animalArray = [];
 const vegetableArray = [];
 const userArray = [];
 
+let element;
 
 animalsAll.forEach((elm) => {
-	const element = document.createElement("div");
-	element.classList.add("animal_container");
-	containerHTML.appendChild(element);
-	element.innerHTML += `<i class="fa-solid fa-${elm.name}"></i>`
-	element.style.color = `${elm.color}`;
-	
-	
-	if(elm.type == 'animal'){
-		element.classList.add("type-animal");
-	}
-	else if(elm.type == 'vegetable'){
-		element.classList.add("type-vegetable");
-	}
-	else{
-		element.classList.add("type-users");
-	}
-
-
-	const typeAnimal = document.querySelector('.type-animal')
-
-	selectValue.addEventListener('change', ()=> {
-		animalsAll.forEach(() => {
-			if(selectValue.value == 'animal'){
-				typeAnimal.style.display = 'none';
-			}
-		})
-	});
-
-
-
+	printIconBox(elm)
 });
 
-// const typeAnimal = document.querySelectorAll('.type-animal')
-
-// selectValue.addEventListener('change', ()=> {
-// 	if(selectValue.value == 'animal'){
-// 		typeAnimal.style.display = 'none';
-// 	}
-// });
 
 
+// const typeAnimal = document.querySelectorAll('.type-animal');
+// const typeUser = document.querySelectorAll('.type-user');
+// const typeVegetable = document.querySelectorAll('.type-vegetable');
 
+selectValue.addEventListener('change', function(){
+	containerHTML.innerHTML = ""
+	if(selectValue.value == "animal"){
+		const animalType = animalsAll.filter((obj)=>{
+			return obj.type === "animal"
+		});
+		animalType.forEach((elm)=>{
+			printIconBox(elm)
+		})
+	}	
+});
+
+
+// FUNCTION
+function printIconBox(obj){
+	element = document.createElement("div");
+	element.classList.add("animal_container");
+	containerHTML.appendChild(element);
+	element.innerHTML += `
+	<i class="fa-solid fa-${obj.name}"></i>
+	<span class="text-color">${obj.name}</span>
+	`
+	element.style.color = `${obj.color}`;
+}
