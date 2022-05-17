@@ -1,4 +1,4 @@
-[
+const animalsAll = [
 	{
 		name: 'cat',
 		prefix: 'fa-',
@@ -112,3 +112,17 @@
 		color: 'blue'
 	}
 ];
+
+
+// Seleziono il mio container da HTML
+const containerHTML = document.querySelector(".container");
+const element = document.createElement("div")
+containerHTML.appendChild(element)
+// element.innerHTML = `<i class="fa-solid fa-cat"></i>`
+// console.log(element);
+
+
+animalsAll.forEach((elm) => {
+	element.innerHTML += `<i class="fa-solid fa-${elm.name}"></i>`
+});
+
