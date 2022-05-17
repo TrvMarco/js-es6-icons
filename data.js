@@ -142,6 +142,24 @@ selectValue.addEventListener('change', function(){
 		animalType.forEach((elm)=>{
 			printIconBox(elm)
 		})
+	}else if(selectValue.value == "vegetable"){
+		const vegetableType = animalsAll.filter((obj)=>{
+			return obj.type === "vegetable"
+		});
+		vegetableType.forEach((elm)=>{
+			printIconBox(elm)
+		})
+	}else if(selectValue.value == "user"){
+		const userType = animalsAll.filter((obj)=>{
+			return obj.type === "user"
+		});
+		userType.forEach((elm)=>{
+			printIconBox(elm)
+		})
+	}else{
+		animalsAll.forEach((elm) => {
+			printIconBox(elm)
+		});
 	}	
 });
 
