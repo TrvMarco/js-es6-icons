@@ -1,0 +1,31 @@
+/*-----------
+    reset
+-----------*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/*-----------
+    main
+-----------*/
+.container{
+    padding-top: 50px;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.animal_container{
+    height: 70px;
+    width: 150px;
+    background-color: aquamarine;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    font-size: 20px;
+}

@@ -116,13 +116,11 @@ const animalsAll = [
 
 // Seleziono il mio container da HTML
 const containerHTML = document.querySelector(".container");
-const element = document.createElement("div")
-containerHTML.appendChild(element)
-// element.innerHTML = `<i class="fa-solid fa-cat"></i>`
-// console.log(element);
-
 
 animalsAll.forEach((elm) => {
+	const element = document.createElement("div")
+	element.classList.add("animal_container")
+	containerHTML.appendChild(element)
 	element.innerHTML += `<i class="fa-solid fa-${elm.name}"></i>`
 });
 
